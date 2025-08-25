@@ -1,0 +1,272 @@
+/* FORMULARIO ELEGANTE */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+
+/* Panel administrativo */
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+    flex-wrap: nowrap; /* evitar que se rompa la estructura */
+    overflow-x: hidden; /* evita scroll horizontal */
+    box-sizing: border-box;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #2c3e50;
+    color: white;
+    width: 175px;
+    padding: 20px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+    white-space: nowrap;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.3s ease;
+}
+
+/* Botón toggle */
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    background-color: #2c3e50;
+    width: 20px;
+    height: 30px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Estado colapsado */
+#sidebarToggle:checked + .sidebar {
+    width: 25px;
+}
+
+/* Ocultar título y texto */
+#sidebarToggle:checked + .sidebar h2 {
+    opacity: 0;
+}
+#sidebarToggle:checked + .sidebar ul li a span.text {
+    opacity: 0;
+}
+
+/* Ocultar botón toggle cuando está colapsado */
+#sidebarToggle:checked + .sidebar .toggle-btn {
+    display: 1;
+}
+
+
+
+/* Contenedor principal */
+.main-content {
+    margin-left: 220px;  /* deja espacio al sidebar */
+    padding: 20px;
+    background: #f5f6fa;
+    min-height: 100vh; /* asegura que ocupe toda la altura */
+}
+
+.main-content h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #2c3e50;
+}
+
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px; /* ya tiene un espacio inferior */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+}
+
+/* Espacio adicional para botones encima de la tabla */
+.table-container .btn {
+    margin-bottom: 15px; /* ajusta a tu gusto */
+}
+
+/* Si los botones están debajo de la tabla */
+.table-container table + .btn {
+    margin-top: 15px; /* separa del borde superior de la tabla */
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    word-wrap: break-word; /* evita que el contenido se salga */
+}
+
+table th {
+    background: #e1ecf4;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    background-color: #2c3e50;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn:hover {
+    background-color: #7a93bb;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+    .admin-container {
+        flex-direction: column; /* sidebar arriba */
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+}
+
+
+
+
+
+.formulario {
+    max-width: 350px;
+    margin: 25px auto;
+    padding: 25px 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border: 2px solid #2c3e50;
+    /* Borde elegante */
+    text-align: center;
+}
+
+/* Logo centrado */
+.logo {
+    display: block;
+    margin: -15px auto 20px auto;
+    /* Ajusta para superponer sobre el formulario */
+    width: 150px;
+    height: auto;
+
+}
+
+
+.formulario label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #2c3e50;
+    font-size: 1rem;
+    box-sizing: border-box;
+    /* Esto asegura que padding y borde no aumenten el ancho */
+}
+
+
+.formulario input:focus,
+.formulario select:focus {
+    border-color: #7a93bb;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.formulario button {
+    width: 48%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.formulario button[type="submit"] {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.formulario button[type="submit"]:hover {
+    background-color: #7a93bb;
+    color: #003366;
+}
+
+.formulario button[type="button"] {
+    background-color: #7f8c8d;
+    /* Nuevo color */
+    color: white;
+    /* Texto en blanco para contraste */
+}
+
+.formulario button[type="button"]:hover {
+    background-color: #95a5a6;
+    /* Color ligeramente más oscuro al pasar el mouse */
+    color: #003366;
+}
+
+
+.formulario a {
+    display: block;
+    margin-top: 15px;
+    color: #203d6f;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.formulario a:hover {
+    text-decoration: underline;
+}
